@@ -1,39 +1,36 @@
 $(document).ready(function(){
-    var countTo;
-    var countBy;
-
-    
-    $("#button").click(function(button){
+  $("#button").click(function(button){
         event.preventDefault();
-        for (var index = 1; index <=countTo; index ++ ) {
+       
+        var countBy = parseInt($("#countBy").val());
+        var countTo = parseInt($("#countTo").val());
+        
+        
+        calculate(countBy,countTo);
+ });
 
-            
+var counting=[]
 
+function calculate(countBy,countTo){
+
+    for (var i = 0; i <= countTo; i += countBy) {
+        if (i != 0){
+            counting.push(i);
         }
+     
+    }
+    console.log(counting);
 
-
-
-
-
-
-
-
-
-
-
-
-    })
-
-
-
+    counting.forEach(function(count){
+        $("<li>" + count + "</li>").appendTo("#result");
+        
+    });
+    }
+  
+    return calculate
+});
 
     
 
+ 
 
-
-
-
-
-
-
-})
